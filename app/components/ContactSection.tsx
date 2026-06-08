@@ -2,6 +2,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import InputMask from "react-input-mask";
 import { motion, useInView } from "framer-motion";
 
 type FormData = {
@@ -216,19 +217,21 @@ export default function ContactSection() {
                   style={{ color: "#818cf8" }}>
                   Телефон / Telegram *
                 </label>
-                <input
-                  type="text"
-                  placeholder="+7 (777) 000-00-00"
-defaultValue="+7"
-                  value={form.phone}
-onChange={(e) => {
-  let val = e.target.value;
-  if (!val.startsWith("+7")) val = "+7";
-  setForm({ ...form, phone: val });
-}}
-                  className="w-full px-4 py-3 rounded-xl text-[14px] transition-all duration-200 placeholder:text-slate-700"
-                  style={inputStyle("phone")}
-                />
+              <InputMask
+  mask="+7 (999) 999-99-99"
+  value={form.phone}
+  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+>
+  {(inputProps: React.InputHTMLAttributes<HTMLInputElement>) => (
+    <input
+      {...inputProps}
+      type="tel"
+      placeholder="+7 (705) 240-04-40"
+      className="w-full px-4 py-3 rounded-xl text-[14px] transition-all duration-200 placeholder:text-slate-700"
+      style={inputStyle("phone")}
+    />
+  )}
+</InputMask>
                 {errors.phone && (
                   <p className="text-[11px] mt-1" style={{ color: "#f87171" }}>{errors.phone}</p>
                 )}
