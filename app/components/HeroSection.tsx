@@ -368,7 +368,7 @@ export default function HeroSection() {
               transition={{ delay: 0.55, duration: 0.5 }}
               className="flex flex-wrap gap-3 mb-12"
             >
-              <Link href="/contact"
+              <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior:'smooth'}); }}
                 className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl font-bold text-[13px] text-white transition-all duration-200"
                 style={{
                   background: "linear-gradient(135deg, #6366f1, #a855f7)",
@@ -380,8 +380,8 @@ export default function HeroSection() {
                   fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </Link>
-              <Link href="/cases"
+              </a>
+              <a href="#cases" onClick={(e) => { e.preventDefault(); document.getElementById('cases')?.scrollIntoView({behavior:'smooth'}); }}
                 className="inline-flex items-center gap-2 px-7 py-4 rounded-xl font-semibold text-[13px] transition-all duration-200"
                 style={{
                   background: "rgba(99,102,241,0.08)",
@@ -390,7 +390,7 @@ export default function HeroSection() {
                 }}
               >
                 Смотреть кейсы
-              </Link>
+              </a>
             </motion.div>
 
             {/* Статистика */}
