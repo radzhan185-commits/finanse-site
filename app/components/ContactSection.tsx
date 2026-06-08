@@ -219,8 +219,13 @@ export default function ContactSection() {
                 <input
                   type="text"
                   placeholder="+7 (777) 000-00-00"
+defaultValue="+7"
                   value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+onChange={(e) => {
+  let val = e.target.value;
+  if (!val.startsWith("+7")) val = "+7";
+  setForm({ ...form, phone: val });
+}}
                   className="w-full px-4 py-3 rounded-xl text-[14px] transition-all duration-200 placeholder:text-slate-700"
                   style={inputStyle("phone")}
                 />
