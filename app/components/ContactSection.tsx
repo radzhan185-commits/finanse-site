@@ -55,13 +55,27 @@ export default function ContactSection() {
   };
 
   const handleSubmit = async () => {
-    if (!validate()) return;
-    setStatus("loading");
-    // Имитация отправки (подключишь реальный endpoint позже)
-    await new Promise((r) => setTimeout(r, 1500));
+  if (!validate()) return;
+  setStatus("loading");
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: form.name,
+        company: form.company,
+        phone: form.phone,
+        segment: form.segment,
+        service: selectedService,
+        message: form.message,
+      }),
+    });
+    if (!res.ok) throw new Error();
     setStatus("success");
-  };
-
+  } catch {
+    setStatus("error");
+  }
+};
   const inputStyle = (field: keyof FormData) => ({
     background: "rgba(255,255,255,0.03)",
     border: errors[field]
