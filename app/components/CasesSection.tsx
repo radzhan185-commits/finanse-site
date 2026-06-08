@@ -296,7 +296,7 @@ export default function CasesSection() {
           <p className="text-slate-600 text-[14px] mb-5">
             Хотите такой же результат? Начнём с бесплатного разбора вашей ситуации.
           </p>
-          <a href="/contact"
+          <a href="#contact"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-[13px] text-white"
             style={{
               background: "linear-gradient(135deg, #6366f1, #a855f7)",

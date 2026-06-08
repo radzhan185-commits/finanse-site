@@ -323,7 +323,7 @@ export default function ServicesSection() {
             <p className="text-white font-bold text-[17px] mb-1">Не знаете с чего начать?</p>
             <p className="text-slate-600 text-[13px]">Бесплатная 30-минутная консультация — разберём вашу ситуацию</p>
           </div>
-          <a href="/contact"
+          <a href="#contact"
             className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-[13px] text-white"
             style={{
               background: "linear-gradient(135deg, #6366f1, #a855f7)",

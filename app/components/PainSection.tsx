@@ -217,7 +217,7 @@ export default function PainSection() {
           <p className="text-slate-600 text-[14px] mb-5">
             Не нашли свою ситуацию? Расскажите — найдём решение.
           </p>
-          <a href="/contact"
+          <a href="#contact"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-[13px] text-white transition-all duration-200"
             style={{
               background: "linear-gradient(135deg, #6366f1, #a855f7)",
