@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID!;
+const CHAT_ID_2 = process.env.TELEGRAM_CHAT_ID_2!;
 
 export async function POST(req: NextRequest) {
   try {
@@ -31,20 +32,25 @@ export async function POST(req: NextRequest) {
 ⏰ ${now}
     `.trim();
 
-    const response = await fetch(
-      `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text,
-          parse_mode: "HTML",
-        }),
-      }
-    );
+    // Отправляем первому
+await fetch(
+  `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`,
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: "HTML" }),
+  }
+);
 
-    if (!response.ok) throw new Error("Telegram API error");
+// Отправляем второму
+await fetch(
+  `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`,
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: CHAT_ID_2, text, parse_mode: "HTML" }),
+  }
+);
 
     return NextResponse.json({ success: true });
   } catch (error) {
