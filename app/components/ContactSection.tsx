@@ -35,12 +35,12 @@ export default function ContactSection() {
   const titleInView = useInView(titleRef, { once: true });
 
   const [form, setForm] = useState<FormData>({
-    name: "",
-    company: "",
-    phone: "",
-    segment: "",
-    message: "",
-  });
+  name: "",
+  company: "",
+  phone: "+7",
+  segment: "",
+  message: "",
+});
   const [selectedService, setSelectedService] = useState("");
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
